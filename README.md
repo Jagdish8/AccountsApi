@@ -7,6 +7,8 @@ REST-ful API to simulate simple account operations.
 *	CRUD operations for accounts.
 *	Support deposits and withdrawals on accounts.
 *	one account may transfer funds to another account.
+*   get list of all payments
+*   get list of payments made by an account
 
 ## Getting Started
 
