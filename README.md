@@ -22,7 +22,15 @@ git clone https://github.com/Jagdish8/AccountsApi.git
 - Import existing maven project
 - Run mvn clean install
 ```
-3. Default port for the api is 8989
+
+3. run the AccountsApiApplication class and the application will be running
+
+4. open the below link
+```
+http://localhost:8989/bank-api/swagger-ui.html
+```
+
+5. Default port for the api is 8989
 
 
 ### Prerequisites
