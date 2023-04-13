@@ -1,0 +1,21 @@
+
+server:
+  port: 8989
+  servlet:
+    context-path: /bank-api
+
+# configuration for h2 database
+spring:
+  h2:
+    console:
+      enabled: 'true'
+  datasource:
+    username: jagdish
+    url: jdbc:h2:mem:jagdishData
+    driverClassName: org.h2.Driver
+    password: '6969'
+  jpa:
+    database-platform: org.hibernate.dialect.H2Dialect
+  mvc:
+    pathmatch:
+      matching-strategy: ant-path-matcher
