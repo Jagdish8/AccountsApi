@@ -30,6 +30,9 @@ public class PaymentServiceImpl implements PaymentService {
 
     @Override
     public ResponseEntity<Object> getPaymentsByAccountId(String accountId) {
+        if(accountService.getAccountById(accountId).isEmpty()) {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Account id " + accountId + " not found.");
+        }
         List<Payment> allPayments = new ArrayList<>();
         List<Transaction> allTransactions = paymentRepository.findAll();
         allTransactions.stream()
@@ -58,7 +61,9 @@ public class PaymentServiceImpl implements PaymentService {
 
     @Override
     public ResponseEntity<Object> transferMoney(Transaction transaction) {
-
+        if(transaction.getFromAccount().equals(transaction.getToAccount())) {
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Both accounts cannot be same");
+        }
         Optional<Account> sender = accountService.getAccountById(transaction.getFromAccount());
         Optional<Account> receiver = accountService.getAccountById(transaction.getToAccount());
         if(sender.isPresent() && receiver.isPresent()) {
